@@ -75,11 +75,19 @@ function handleNavClick(e) {
     
     currentActiveSection = targetSection;
     
-    // 平滑滚动到顶部
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-    });
+    // 平滑滚动到内容区域
+    const targetElement = document.querySelector(`[data-section="${targetSection}"]`);
+    if (targetElement) {
+        // 计算滚动位置，考虑header高度
+        const headerOffset = 0;
+        const elementPosition = targetElement.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+        
+        window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+        });
+    }
     
     console.log('=== 导航切换完成 ===');
 }
@@ -186,23 +194,89 @@ function handleResize() {
     }
 }
 
-// 滚动监听（简化版）
+// 高级滚动监听 - 实现自动导航切换
 function setupScrollSpy() {
-    console.log('设置滚动监听');
+    console.log('设置高级滚动监听');
     
     let ticking = false;
+    let scrollThreshold = 150; // 滚动阈值
+    let lastScrollY = 0;
+    let direction = 'down';
+    
+    // 获取所有导航链接的相对位置
+    function getNavigationMapping() {
+        const mapping = [];
+        navLinks.forEach((link, index) => {
+            const sectionId = link.dataset.section;
+            const section = document.querySelector(`[data-section="${sectionId}"]`);
+            if (section) {
+                const rect = section.getBoundingClientRect();
+                mapping.push({
+                    index,
+                    link,
+                    sectionId,
+                    offset: rect.top + window.pageYOffset,
+                    height: section.offsetHeight
+                });
+            }
+        });
+        return mapping.sort((a, b) => a.offset - b.offset);
+    }
     
     function updateOnScroll() {
         const scrollTop = window.pageYOffset;
         const windowHeight = window.innerHeight;
         const documentHeight = document.documentElement.scrollHeight;
+        const currentScrollY = scrollTop;
         
-        // 计算滚动百分比
-        const scrollPercent = scrollTop / (documentHeight - windowHeight);
+        // 确定滚动方向
+        if (currentScrollY > lastScrollY) {
+            direction = 'down';
+        } else if (currentScrollY < lastScrollY) {
+            direction = 'up';
+        }
         
-        // 如果滚动超过50%，可以考虑切换到下一个section
-        if (scrollPercent > 0.7) {
-            // 这里可以添加自动切换逻辑，但暂时保持手动导航
+        // 获取导航映射
+        const mapping = getNavigationMapping();
+        
+        // 查找当前应该激活的章节
+        let currentSectionIndex = -1;
+        for (let i = 0; i < mapping.length; i++) {
+            const sectionStart = mapping[i].offset;
+            const sectionEnd = sectionStart + mapping[i].height;
+            
+            if (currentScrollY >= sectionStart - windowHeight * 0.3) {
+                if (i === mapping.length - 1 || currentScrollY < mapping[i + 1].offset - windowHeight * 0.3) {
+                    currentSectionIndex = i;
+                    break;
+                }
+            }
+        }
+        
+        // 自动切换导航
+        if (currentSectionIndex >= 0) {
+            const targetSectionId = mapping[currentSectionIndex].sectionId;
+            
+            // 只有当实际章节发生变化时才切换
+            if (targetSectionId !== currentActiveSection) {
+                console.log(`滚动检测到章节切换: ${currentActiveSection} -> ${targetSectionId}`);
+                
+                // 切换内容区域
+                showSection(targetSectionId);
+                
+                // 更新导航状态
+                updateNavigation(targetSectionId);
+                
+                currentActiveSection = targetSectionId;
+            }
+        }
+        
+        // 处理滚动方向逻辑
+        if (Math.abs(currentScrollY - lastScrollY) > scrollThreshold) {
+            lastScrollY = currentScrollY;
+            
+            // 可以在这里添加更多滚动相关的动画或交互
+            // 例如：根据滚动方向添加不同的视觉效果
         }
         
         ticking = false;
@@ -215,7 +289,16 @@ function setupScrollSpy() {
         }
     }
     
-    window.addEventListener('scroll', requestScrollUpdate, { passive: true });
+    // 添加防抖处理
+    let scrollTimeout;
+    window.addEventListener('scroll', () => {
+        if (scrollTimeout) {
+            clearTimeout(scrollTimeout);
+        }
+        scrollTimeout = setTimeout(requestScrollUpdate, 10);
+    }, { passive: true });
+    
+    console.log('滚动监听设置完成');
 }
 
 // 页面可见性变化
