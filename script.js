@@ -6,10 +6,19 @@ const navLinks = document.querySelectorAll('.nav-link');
 const contentSections = document.querySelectorAll('.content-section');
 const progressBar = document.getElementById('progressBar');
 
+// 检查Intersection Observer支持
+function supportsIntersectionObserver() {
+    return 'IntersectionObserver' in window && 
+           'IntersectionObserverEntry' in window && 
+           'intersectionRatio' in window.IntersectionObserverEntry.prototype;
+}
+
 // 滚动监听状态
 let isScrolling = false;
 let currentActiveSection = 'welcome';
 let isAutoScrolling = false;
+let scrollObserver = null;
+let fallbackScrollHandler = null;
 
 // 移动端菜单切换
 function toggleMobileMenu() {
@@ -79,27 +88,44 @@ function switchContent(targetSection) {
 
 // 滚动监听功能 - 检测内容区域的可见性
 function setupScrollSpy() {
-    const observerOptions = {
-        root: null,
-        rootMargin: '-40% 0px -50% 0px', // 调整触发区域
-        threshold: 0
-    };
+    // 如果不支持IntersectionObserver，使用回退方案
+    if (!supportsIntersectionObserver()) {
+        console.warn('IntersectionObserver not supported, using fallback scroll detection');
+        setupFallbackScrollDetection();
+        return;
+    }
     
-    const scrollObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting && entry.intersectionRatio > 0) {
-                const sectionId = entry.target.getAttribute('data-section');
-                if (sectionId && sectionId !== currentActiveSection) {
-                    switchContent(sectionId);
+    try {
+        const observerOptions = {
+            root: null,
+            rootMargin: '-40% 0px -50% 0px', // 调整触发区域
+            threshold: [0, 0.5, 1]
+        };
+        
+        scrollObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && entry.intersectionRatio > 0.3) {
+                    const sectionId = entry.target.getAttribute('data-section');
+                    if (sectionId && sectionId !== currentActiveSection) {
+                        console.log('Section detected:', sectionId); // 调试日志
+                        switchContent(sectionId);
+                    }
                 }
+            });
+        }, observerOptions);
+        
+        // 观察所有内容区块
+        contentSections.forEach(section => {
+            if (section && section.getAttribute('data-section')) {
+                scrollObserver.observe(section);
             }
         });
-    }, observerOptions);
-    
-    // 观察所有内容区块
-    contentSections.forEach(section => {
-        scrollObserver.observe(section);
-    });
+        
+        console.log('Intersection Observer scroll spy initialized');
+    } catch (error) {
+        console.error('Failed to initialize Intersection Observer:', error);
+        setupFallbackScrollDetection();
+    }
 }
 
 // 滚动进度条更新
@@ -390,8 +416,84 @@ function setupContentAnimations() {
     });
 }
 
+// 回退滚动检测 - 当不支持IntersectionObserver时使用
+function setupFallbackScrollDetection() {
+    console.log('Setting up fallback scroll detection');
+    
+    function checkVisibleSections() {
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+        
+        let closestSection = null;
+        let closestDistance = Infinity;
+        
+        contentSections.forEach(section => {
+            if (!section || !section.getAttribute) return;
+            
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.offsetHeight;
+            const sectionBottom = sectionTop + sectionHeight;
+            
+            // 计算section相对于视窗的位置
+            const scrollCenter = scrollTop + windowHeight * 0.3;
+            
+            if (scrollCenter >= sectionTop && scrollCenter <= sectionBottom) {
+                // section在视窗中
+                const distance = Math.abs(scrollCenter - (sectionTop + sectionHeight / 2));
+                if (distance < closestDistance) {
+                    closestDistance = distance;
+                    closestSection = section;
+                }
+            }
+        });
+        
+        if (closestSection) {
+            const sectionId = closestSection.getAttribute('data-section');
+            if (sectionId && sectionId !== currentActiveSection) {
+                console.log('Fallback detected section:', sectionId);
+                switchContent(sectionId);
+            }
+        }
+    }
+    
+    // 节流函数
+    function throttle(func, limit) {
+        let inThrottle;
+        return function() {
+            const args = arguments;
+            const context = this;
+            if (!inThrottle) {
+                func.apply(context, args);
+                inThrottle = true;
+                setTimeout(() => inThrottle = false, limit);
+            }
+        }
+    }
+    
+    fallbackScrollHandler = throttle(checkVisibleSections, 100);
+    window.addEventListener('scroll', fallbackScrollHandler, { passive: true });
+    
+    // 初始检查
+    setTimeout(checkVisibleSections, 100);
+}
+
+// 清理回退监听器
+function cleanupFallbackScrollDetection() {
+    if (fallbackScrollHandler) {
+        window.removeEventListener('scroll', fallbackScrollHandler);
+        fallbackScrollHandler = null;
+    }
+}
+
 // 初始化函数
 function init() {
+    // 清理之前的监听器
+    if (scrollObserver) {
+        scrollObserver.disconnect();
+        scrollObserver = null;
+    }
+    cleanupFallbackScrollDetection();
+    
     // 设置初始激活的导航链接和内容区块
     const welcomeSection = document.getElementById('welcome');
     const welcomeLink = document.querySelector('[data-section="welcome"]');
