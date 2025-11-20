@@ -1,0 +1,137 @@
+[
+  {
+    "query": "Soft watercolor ink texture in light blue and gray tones for website background",
+    "image_info": {
+      "url": "https://thumbs.dreamstime.com/b/dusty-grey-golden-geode-frame-winter-wedding-invitation-classic-blue-watercolor-fluid-painting-vector-design-card-snow-ice-201190797.jpg",
+      "img_format": "JPEG",
+      "mode": "RGB",
+      "file_size": 42801,
+      "width": 675,
+      "height": 900,
+      "total_pixels": 607500,
+      "basic_score": 0.8683304346449968,
+      "file_name": "ink_texture_4.jpg"
+    },
+    "llm_score": null
+  },
+  {
+    "query": "Soft watercolor ink texture in light blue and gray tones for website background",
+    "image_info": {
+      "url": "https://thumbs.dreamstime.com/b/abstract-blue-light-gray-watercolor-background-creative-painted-wallpaper-texture-161988684.jpg",
+      "img_format": "JPEG",
+      "mode": "RGB",
+      "file_size": 43343,
+      "width": 800,
+      "height": 686,
+      "total_pixels": 548800,
+      "basic_score": 0.8563470535445542,
+      "file_name": "ink_texture_7.jpg"
+    },
+    "llm_score": null
+  },
+  {
+    "query": "Soft watercolor ink texture in light blue and gray tones for website background",
+    "image_info": {
+      "url": "https://www.shutterstock.com/image-vector/abstract-watercolor-background-bluegray-tones-600nw-2527971427.jpg",
+      "img_format": "JPEG",
+      "mode": "RGB",
+      "file_size": 43345,
+      "width": 600,
+      "height": 357,
+      "total_pixels": 214200,
+      "basic_score": 0.752439907797514,
+      "file_name": "ink_texture_0.jpg"
+    },
+    "llm_score": null
+  },
+  {
+    "query": "Minimalist Japanese-style ink painting with mountains and mist, peaceful and zen-like",
+    "image_info": {
+      "url": "https://as2.ftcdn.net/jpg/01/52/58/35/1000_F_152583520_mYNPFg63CImE3uyxmF76lubOpd2JRzm4.jpg",
+      "img_format": "JPEG",
+      "mode": "RGB",
+      "file_size": 92196,
+      "width": 1000,
+      "height": 654,
+      "total_pixels": 654000,
+      "basic_score": 0.8932163215641022,
+      "file_name": "mountain_mist_2.jpg"
+    },
+    "llm_score": null
+  },
+  {
+    "query": "Minimalist Japanese-style ink painting with mountains and mist, peaceful and zen-like",
+    "image_info": {
+      "url": "https://media.istockphoto.com/id/684450764/vector/blue-mountains-in-fog-hand-drawn-with-ink-in-minimalist-style-traditional-oriental-ink.jpg?s=612x612&w=0&k=20&c=Jc74f9ZG3LaJoNYyUnsFSN1ztxex5DmJ3_BHUVh2bj8=",
+      "img_format": "JPEG",
+      "mode": "RGB",
+      "file_size": 16517,
+      "width": 612,
+      "height": 400,
+      "total_pixels": 244800,
+      "basic_score": 0.7624282415807581,
+      "file_name": "mountain_mist_5.jpg"
+    },
+    "llm_score": null
+  },
+  {
+    "query": "Minimalist Japanese-style ink painting with mountains and mist, peaceful and zen-like",
+    "image_info": {
+      "url": "https://laboostudio.com/cdn/shop/files/fca20fc1-c266-4b5e-8284-dbda0c6e2311-copy.jpg?v=1755954232&width=480",
+      "img_format": "JPEG",
+      "mode": "RGB",
+      "file_size": 22949,
+      "width": 480,
+      "height": 480,
+      "total_pixels": 230400,
+      "basic_score": 0.7598536860602026,
+      "file_name": "mountain_mist_9.jpg"
+    },
+    "llm_score": null
+  },
+  {
+    "query": "A serene Chinese ink wash painting background with mountains and clouds in minimal style, suitable for website background",
+    "image_info": {
+      "url": "https://thumbs.dreamstime.com/b/distant-artistic-conception-zen-ink-landscape-painting-layers-mountains-chinese-style-art-asian-blossom-173263062.jpg",
+      "img_format": "JPEG",
+      "mode": "RGB",
+      "file_size": 42698,
+      "width": 800,
+      "height": 493,
+      "total_pixels": 394400,
+      "basic_score": 0.8145484455688827,
+      "file_name": "zen_background_3.jpg"
+    },
+    "llm_score": null
+  },
+  {
+    "query": "A serene Chinese ink wash painting background with mountains and clouds in minimal style, suitable for website background",
+    "image_info": {
+      "url": "https://thumbs.dreamstime.com/b/abstract-chinese-japanese-ink-calligraphy-painting-red-flowers-black-wave-cherry-blossom-paper-artistic-zen-landscape-385666321.jpg",
+      "img_format": "JPEG",
+      "mode": "RGB",
+      "file_size": 53267,
+      "width": 800,
+      "height": 457,
+      "total_pixels": 365600,
+      "basic_score": 0.8101105902402301,
+      "file_name": "zen_background_5.jpg"
+    },
+    "llm_score": null
+  },
+  {
+    "query": "A serene Chinese ink wash painting background with mountains and clouds in minimal style, suitable for website background",
+    "image_info": {
+      "url": "https://www.shutterstock.com/image-vector/handdrawn-chinese-ink-wash-painting-600nw-2468668053.jpg",
+      "img_format": "JPEG",
+      "mode": "RGB",
+      "file_size": 38777,
+      "width": 600,
+      "height": 600,
+      "total_pixels": 360000,
+      "basic_score": 0.807956828451122,
+      "file_name": "zen_background_6.jpg"
+    },
+    "llm_score": null
+  }
+]
