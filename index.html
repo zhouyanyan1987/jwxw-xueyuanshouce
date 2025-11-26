@@ -3,418 +3,1688 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>镜悟小我心理成长训练营——学员使用手册</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&family=Noto+Sans+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
-</head>
-<body>
-    <!-- 水墨背景层 -->
-    <div class="zen-background"></div>
-    <div class="ink-texture"></div>
-    
-    <!-- 移动端菜单按钮 -->
-    <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="打开导航菜单">
-        <span></span>
-        <span></span>
-        <span></span>
-    </button>
-
-    <!-- 主容器 -->
-    <div class="container">
-        <!-- 左侧导航栏 -->
-        <nav class="sidebar" id="sidebar" role="navigation" aria-label="主导航">
-            <div class="nav-header">
-                <div class="nav-logo">
-                    <div class="logo-symbol">镜</div>
-                    <h3>目录导航</h3>
-                </div>
-            </div>
-            <ul class="nav-menu">
-                <li><a href="#welcome" class="nav-link active" data-section="welcome">欢迎语</a></li>
-                <li><a href="#preparation" class="nav-link" data-section="preparation">参营前准备</a></li>
-                <li><a href="#schedule" class="nav-link" data-section="schedule">训练营流程</a></li>
-                <li><a href="#format" class="nav-link" data-section="format">训练营形式</a></li>
-                <li><a href="#learning" class="nav-link" data-section="learning">如何达到最佳学习效果</a></li>
-                <li><a href="#service" class="nav-link" data-section="service">参营后服务须知</a></li>
-            </ul>
+    <title>镜悟小我心理成长训练营 - 水墨国风终极版</title>
+    <style>
+        /* ==================== 水墨国风终极版设计系统 ==================== */
+        :root {
+            /* 水墨色系 - 主色调 */
+            --ink-black: #1A1A1A;              /* 浓墨黑 */
+            --ink-dark: #2C2C2C;               /* 深墨灰 */
+            --ink-medium: #4A4A4A;              /* 中墨灰 */
+            --ink-light: #6B6B6B;               /* 淡墨灰 */
+            --ink-wash: #8E8E8E;                /* 水墨灰 */
             
-            <!-- 装饰性水墨元素 -->
-            <div class="sidebar-decoration">
-                <div class="ink-drop"></div>
-                <div class="mountain-line"></div>
+            /* 宣纸色系 - 背景 */
+            --rice-paper-warm: #FEFBF7;         /* 温润宣纸 */
+            --rice-paper-natural: #F9F6F0;      /* 自然宣纸 */
+            --rice-paper-cream: #F5F0E8;        /* 奶油宣纸 */
+            --rice-paper-texture: #F0E8DC;      /* 纹理宣纸 */
+            --rice-paper-shadow: #E8DDD4;       /* 阴影宣纸 */
+            
+            /* 朱砂红色系 - 点缀 */
+            --vermillion-deep: #CC2936;         /* 深朱砂 */
+            --vermillion-medium: #E63946;       /* 中朱砂 */
+            --vermillion-light: #F1665B;        /* 淡朱砂 */
+            --vermillion-pale: #F8A5A5;         /* 最淡朱砂 */
+            
+            /* 传统金色 - 装饰 */
+            --ancient-gold: #B8860B;            /* 古铜金 */
+            --warm-gold: #DAA520;               /* 温润金 */
+            --soft-gold: #F4E4BC;               /* 柔和金 */
+            --golden-shimmer: #FFF8DC;          /* 金色闪光 */
+            
+            /* 自然绿色 - 和谐 */
+            --bamboo-green: #2E7D32;            /* 竹绿 */
+            --jade-green: #4CAF50;              /* 翡翠绿 */
+            --fresh-green: #81C784;             /* 新叶绿 */
+            
+            /* 渐变系统 */
+            --ink-wash-gradient: 
+                radial-gradient(ellipse at 30% 20%, rgba(26, 26, 26, 0.03) 0%, transparent 50%),
+                radial-gradient(ellipse at 70% 80%, rgba(204, 41, 54, 0.02) 0%, transparent 50%),
+                linear-gradient(135deg, #FEFBF7 0%, #F9F6F0 50%, #F5F0E8 100%);
+            
+            --traditional-border: 
+                linear-gradient(45deg, 
+                    rgba(26, 26, 26, 0.1) 0%, 
+                    rgba(204, 41, 54, 0.05) 25%, 
+                    transparent 50%, 
+                    rgba(26, 26, 26, 0.1) 75%, 
+                    transparent 100%);
+            
+            --paper-texture: 
+                repeating-linear-gradient(
+                    0deg,
+                    transparent 0px,
+                    rgba(26, 26, 26, 0.008) 1px,
+                    transparent 2px,
+                    transparent 4px
+                ),
+                repeating-linear-gradient(
+                    90deg,
+                    transparent 0px,
+                    rgba(204, 41, 54, 0.005) 1px,
+                    transparent 2px,
+                    transparent 6px
+                );
+            
+            /* 阴影系统 */
+            --ink-shadow-soft: 0 2px 8px rgba(26, 26, 26, 0.08);
+            --ink-shadow-medium: 0 4px 16px rgba(26, 26, 26, 0.12);
+            --ink-shadow-strong: 0 8px 24px rgba(26, 26, 26, 0.16);
+            --vermillion-shadow: 0 4px 12px rgba(204, 41, 54, 0.15);
+            
+            /* 字体系统 */
+            --font-primary: 'Noto Sans SC', 'Microsoft YaHei', 'PingFang SC', sans-serif;
+            --font-elegant: 'Noto Serif SC', '宋体', serif;
+            --font-calligraphy: 'STKaiti', 'KaiTi', '楷体', serif;
+            
+            /* 间距系统 */
+            --space-xs: 0.25rem;
+            --space-sm: 0.5rem;
+            --space-md: 1rem;
+            --space-lg: 1.5rem;
+            --space-xl: 2rem;
+            --space-xxl: 3rem;
+            --space-3xl: 4rem;
+            --space-4xl: 5rem;
+        }
+
+        /* ==================== 全局重置 ==================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-primary);
+            line-height: 1.7;
+            color: var(--ink-dark);
+            background: var(--ink-wash-gradient);
+            overflow: hidden;
+            user-select: none;
+            position: relative;
+        }
+
+        /* ==================== 宣纸质感与水墨纹理 ==================== */
+        .traditional-paper {
+            background: var(--ink-wash-gradient);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .traditional-paper::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--paper-texture);
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .traditional-paper::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(ellipse at 25% 15%, rgba(26, 26, 26, 0.02) 0%, transparent 40%),
+                radial-gradient(ellipse at 75% 85%, rgba(204, 41, 54, 0.015) 0%, transparent 40%),
+                radial-gradient(ellipse at 50% 50%, rgba(218, 165, 32, 0.01) 0%, transparent 60%);
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        /* ==================== 山水画装饰元素 ==================== */
+        .mountain-decoration {
+            position: absolute;
+            width: 200px;
+            height: 120px;
+            background: 
+                linear-gradient(180deg, transparent 0%, rgba(26, 26, 26, 0.03) 50%, transparent 100%);
+            clip-path: polygon(
+                0% 100%, 10% 80%, 20% 90%, 35% 60%, 50% 75%, 
+                65% 45%, 80% 65%, 90% 40%, 100% 55%, 100% 100%
+            );
+            opacity: 0.3;
+            animation: mountainFloat 12s ease-in-out infinite;
+        }
+
+        .mountain-decoration:nth-child(1) {
+            top: 8%;
+            right: 8%;
+            animation-delay: 0s;
+        }
+
+        .mountain-decoration:nth-child(2) {
+            bottom: 15%;
+            left: 5%;
+            animation-delay: 4s;
+            transform: scale(0.8);
+        }
+
+        .mountain-decoration:nth-child(3) {
+            top: 40%;
+            right: 20%;
+            animation-delay: 8s;
+            transform: scale(0.6);
+        }
+
+        @keyframes mountainFloat {
+            0%, 100% { transform: translateY(0px) scale(var(--mountain-scale, 1)); opacity: 0.3; }
+            50% { transform: translateY(-10px) scale(var(--mountain-scale, 1)); opacity: 0.5; }
+        }
+
+        /* ==================== 竹叶装饰 ==================== */
+        .bamboo-decoration {
+            position: absolute;
+            width: 60px;
+            height: 80px;
+            background: 
+                linear-gradient(90deg, transparent 20%, rgba(46, 125, 50, 0.2) 50%, transparent 80%),
+                linear-gradient(0deg, transparent 30%, rgba(46, 125, 50, 0.15) 70%, transparent 100%);
+            border-radius: 0 60% 60% 0;
+            opacity: 0.4;
+            animation: bambooSway 8s ease-in-out infinite;
+        }
+
+        .bamboo-decoration:nth-child(1) {
+            top: 20%;
+            left: 2%;
+            animation-delay: 0s;
+        }
+
+        .bamboo-decoration:nth-child(2) {
+            bottom: 25%;
+            right: 3%;
+            animation-delay: 3s;
+            transform: scaleX(-1);
+        }
+
+        .bamboo-decoration:nth-child(3) {
+            top: 50%;
+            left: 8%;
+            animation-delay: 6s;
+        }
+
+        @keyframes bambooSway {
+            0%, 100% { transform: translateX(0px) rotate(0deg); }
+            25% { transform: translateX(5px) rotate(1deg); }
+            75% { transform: translateX(-5px) rotate(-1deg); }
+        }
+
+        /* ==================== 墨滴效果 ==================== */
+        .ink-drop {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: radial-gradient(circle, rgba(26, 26, 26, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: inkDrop 15s ease-in-out infinite;
+        }
+
+        .ink-drop:nth-child(1) {
+            top: 15%;
+            left: 12%;
+            animation-delay: 0s;
+        }
+
+        .ink-drop:nth-child(2) {
+            top: 70%;
+            right: 15%;
+            animation-delay: 5s;
+        }
+
+        .ink-drop:nth-child(3) {
+            bottom: 20%;
+            left: 18%;
+            animation-delay: 10s;
+        }
+
+        .ink-drop:nth-child(4) {
+            top: 35%;
+            right: 25%;
+            animation-delay: 7s;
+        }
+
+        @keyframes inkDrop {
+            0%, 100% { 
+                transform: scale(1) rotate(0deg); 
+                opacity: 0.3; 
+            }
+            25% { 
+                transform: scale(1.5) rotate(90deg); 
+                opacity: 0.6; 
+            }
+            50% { 
+                transform: scale(0.8) rotate(180deg); 
+                opacity: 0.4; 
+            }
+            75% { 
+                transform: scale(1.2) rotate(270deg); 
+                opacity: 0.7; 
+            }
+        }
+
+        /* ==================== 主容器 ==================== */
+        .presentation-container {
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+            z-index: 10;
+        }
+
+        /* ==================== 页面容器 ==================== */
+        .slide {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            transform: translateX(100%);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            padding: var(--space-3xl);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .slide.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .slide.prev {
+            transform: translateX(-100%);
+        }
+
+        /* ==================== 传统边框装饰 ==================== */
+        .traditional-frame {
+            position: absolute;
+            top: var(--space-xl);
+            left: var(--space-xl);
+            right: var(--space-xl);
+            bottom: var(--space-xl);
+            border: 2px solid rgba(26, 26, 26, 0.1);
+            border-radius: 8px;
+            background: var(--traditional-border);
+            z-index: 1;
+        }
+
+        .traditional-frame::before {
+            content: '';
+            position: absolute;
+            top: 8px;
+            left: 8px;
+            right: 8px;
+            bottom: 8px;
+            border: 1px solid rgba(204, 41, 54, 0.08);
+            border-radius: 4px;
+        }
+
+        /* ==================== 标题样式升级 ==================== */
+        .main-title {
+            font-family: var(--font-calligraphy);
+            font-size: 4rem;
+            font-weight: 400;
+            color: var(--ink-black);
+            text-align: center;
+            margin-bottom: var(--space-xl);
+            position: relative;
+            text-shadow: 0 1px 2px rgba(26, 26, 26, 0.1);
+            letter-spacing: 0.1em;
+        }
+
+        .main-title::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent 0%, var(--vermillion-light) 50%, transparent 100%);
+        }
+
+        .main-title::after {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 2px;
+            background: var(--traditional-border);
+            border-radius: 1px;
+        }
+
+        .section-title {
+            font-family: var(--font-elegant);
+            font-size: 3rem;
+            font-weight: 600;
+            color: var(--vermillion-deep);
+            text-align: center;
+            margin-bottom: var(--space-3xl);
+            position: relative;
+            letter-spacing: 0.05em;
+        }
+
+        .section-title::before {
+            content: '◆';
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: var(--warm-gold);
+            font-size: 1.2rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--vermillion-light) 0%, var(--warm-gold) 50%, var(--vermillion-light) 100%);
+            border-radius: 2px;
+        }
+
+        /* ==================== 卡片容器升级 ==================== */
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: var(--space-xl);
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background: rgba(254, 251, 247, 0.9);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(26, 26, 26, 0.08);
+            border-radius: 16px;
+            padding: var(--space-xl);
+            box-shadow: var(--ink-shadow-soft);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent 0%, rgba(218, 165, 32, 0.08) 50%, transparent 100%);
+            transition: left 0.6s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-12px) rotateX(2deg);
+            box-shadow: var(--ink-shadow-strong);
+            border-color: rgba(204, 41, 54, 0.15);
+            background: rgba(254, 251, 247, 0.95);
+        }
+
+        .card:hover::before {
+            left: 100%;
+        }
+
+        .card-title {
+            font-family: var(--font-elegant);
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--ink-black);
+            margin-bottom: var(--space-lg);
+            display: flex;
+            align-items: center;
+            gap: var(--space-md);
+            position: relative;
+        }
+
+        .card-icon {
+            width: 32px;
+            height: 32px;
+            background: var(--vermillion-medium);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1rem;
+            box-shadow: var(--vermillion-shadow);
+            flex-shrink: 0;
+        }
+
+        .card-content {
+            color: var(--ink-medium);
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+
+        /* ==================== 时间线样式升级 ==================== */
+        .timeline-container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .timeline-container::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(180deg, var(--vermillion-light) 0%, var(--warm-gold) 50%, var(--vermillion-light) 100%);
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        .timeline-item {
+            display: grid;
+            grid-template-columns: 140px 180px 1fr;
+            gap: var(--space-xl);
+            padding: var(--space-xl);
+            background: rgba(254, 251, 247, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(26, 26, 26, 0.06);
+            border-radius: 20px;
+            margin-bottom: var(--space-xl);
+            box-shadow: var(--ink-shadow-soft);
+            transition: all 0.4s ease;
+            position: relative;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -15px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 16px;
+            height: 16px;
+            background: var(--vermillion-deep);
+            border: 3px solid rgba(254, 251, 247, 0.9);
+            border-radius: 50%;
+            box-shadow: var(--vermillion-shadow);
+        }
+
+        .timeline-item:hover {
+            transform: translateX(15px) scale(1.02);
+            box-shadow: var(--ink-shadow-medium);
+            background: rgba(254, 251, 247, 1);
+            border-color: rgba(204, 41, 54, 0.1);
+        }
+
+        .timeline-label {
+            font-weight: 600;
+            color: var(--vermillion-deep);
+            text-align: center;
+            padding: var(--space-lg) var(--space-md);
+            background: linear-gradient(135deg, rgba(204, 41, 54, 0.1) 0%, rgba(204, 41, 54, 0.05) 100%);
+            border-radius: 12px;
+            font-size: 1rem;
+            border: 1px solid rgba(204, 41, 54, 0.15);
+        }
+
+        .timeline-time {
+            font-weight: 500;
+            color: var(--warm-gold);
+            text-align: center;
+            padding: var(--space-lg) var(--space-md);
+            background: linear-gradient(135deg, rgba(218, 165, 32, 0.15) 0%, rgba(218, 165, 32, 0.08) 100%);
+            border-radius: 12px;
+            font-size: 1rem;
+            border: 1px solid rgba(218, 165, 32, 0.2);
+        }
+
+        .timeline-content strong {
+            color: var(--ink-black);
+            font-size: 1.2rem;
+            display: block;
+            margin-bottom: var(--space-sm);
+            font-family: var(--font-elegant);
+        }
+
+        .timeline-content p {
+            color: var(--ink-medium);
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        /* ==================== 导航控制升级 ==================== */
+        .navigation {
+            position: fixed;
+            bottom: var(--space-3xl);
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: var(--space-lg);
+            z-index: 1000;
+            background: rgba(254, 251, 247, 0.95);
+            backdrop-filter: blur(25px);
+            padding: var(--space-lg) var(--space-xl);
+            border-radius: 60px;
+            border: 1px solid rgba(26, 26, 26, 0.1);
+            box-shadow: var(--ink-shadow-medium);
+        }
+
+        .nav-btn {
+            width: 56px;
+            height: 56px;
+            border: none;
+            border-radius: 50%;
+            background: var(--vermillion-medium);
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--vermillion-shadow);
+        }
+
+        .nav-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.2) 50%, transparent 100%);
+            transition: left 0.4s ease;
+        }
+
+        .nav-btn:hover {
+            background: var(--vermillion-deep);
+            transform: scale(1.1);
+        }
+
+        .nav-btn:hover::before {
+            left: 100%;
+        }
+
+        .nav-btn:disabled {
+            background: var(--rice-paper-shadow);
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        .nav-btn:disabled::before {
+            display: none;
+        }
+
+        /* ==================== 进度指示器升级 ==================== */
+        .progress-indicator {
+            position: fixed;
+            top: var(--space-3xl);
+            right: var(--space-3xl);
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-md);
+            z-index: 1000;
+        }
+
+        .progress-dot {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: rgba(26, 26, 26, 0.3);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            border: 2px solid rgba(26, 26, 26, 0.1);
+        }
+
+        .progress-dot.active {
+            background: var(--vermillion-deep);
+            transform: scale(1.4);
+            box-shadow: var(--vermillion-shadow);
+            border-color: rgba(254, 251, 247, 0.9);
+        }
+
+        .progress-dot:hover {
+            background: var(--vermillion-medium);
+            transform: scale(1.3);
+        }
+
+        .progress-dot::after {
+            content: attr(data-title);
+            position: absolute;
+            right: 25px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(26, 26, 26, 0.9);
+            color: white;
+            padding: var(--space-sm) var(--space-md);
+            border-radius: 8px;
+            font-size: 0.85rem;
+            white-space: nowrap;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+        }
+
+        .progress-dot:hover::after {
+            opacity: 1;
+        }
+
+        /* ==================== 页面计数器升级 ==================== */
+        .page-counter {
+            position: fixed;
+            bottom: var(--space-3xl);
+            right: var(--space-3xl);
+            background: rgba(254, 251, 247, 0.95);
+            backdrop-filter: blur(25px);
+            padding: var(--space-md) var(--space-xl);
+            border-radius: 30px;
+            border: 1px solid rgba(26, 26, 26, 0.1);
+            color: var(--ink-black);
+            font-weight: 600;
+            font-size: 1.1rem;
+            z-index: 1000;
+            box-shadow: var(--ink-shadow-soft);
+        }
+
+        /* ==================== 印章装饰 ==================== */
+        .seal-decoration {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            background: var(--vermillion-deep);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--rice-paper-warm);
+            font-family: var(--font-calligraphy);
+            font-size: 0.9rem;
+            font-weight: bold;
+            box-shadow: var(--vermillion-shadow);
+            opacity: 0.7;
+            animation: sealGlow 6s ease-in-out infinite;
+        }
+
+        .seal-decoration:nth-child(1) {
+            top: 10%;
+            right: 12%;
+            animation-delay: 0s;
+        }
+
+        .seal-decoration:nth-child(2) {
+            bottom: 15%;
+            left: 8%;
+            animation-delay: 3s;
+        }
+
+        @keyframes sealGlow {
+            0%, 100% { opacity: 0.7; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.05); }
+        }
+
+        /* ==================== 欢迎页面特殊样式 ==================== */
+        .welcome-content {
+            text-align: center;
+            max-width: 900px;
+            position: relative;
+        }
+
+        .welcome-subtitle {
+            font-family: var(--font-elegant);
+            font-size: 1.8rem;
+            color: var(--vermillion-medium);
+            margin-bottom: var(--space-3xl);
+            font-weight: 400;
+            letter-spacing: 0.05em;
+        }
+
+        .welcome-description {
+            font-size: 1.2rem;
+            color: var(--ink-medium);
+            line-height: 1.9;
+            margin-bottom: var(--space-3xl);
+            letter-spacing: 0.02em;
+        }
+
+        .welcome-decorative {
+            width: 250px;
+            height: 2px;
+            background: var(--traditional-border);
+            margin: var(--space-3xl) auto;
+            border-radius: 1px;
+            position: relative;
+        }
+
+        .welcome-decorative::before,
+        .welcome-decorative::after {
+            content: '●';
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--warm-gold);
+            font-size: 0.8rem;
+        }
+
+        .welcome-decorative::before {
+            left: -15px;
+        }
+
+        .welcome-decorative::after {
+            right: -15px;
+        }
+
+        /* ==================== 高级动画效果 ==================== */
+        .fade-in-up {
+            animation: fadeInUp 1s ease-out forwards;
+            opacity: 0;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .slide-in-right {
+            animation: slideInRight 0.8s ease-out forwards;
+            opacity: 0;
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(60px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .traditional-entrance {
+            animation: traditionalEntrance 1.2s ease-out forwards;
+            opacity: 0;
+        }
+
+        @keyframes traditionalEntrance {
+            from {
+                opacity: 0;
+                transform: scale(0.9) rotate(-2deg);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1) rotate(0deg);
+            }
+        }
+
+        /* ==================== 响应式设计升级 ==================== */
+        @media (max-width: 768px) {
+            .main-title {
+                font-size: 2.8rem;
+            }
+            
+            .section-title {
+                font-size: 2.2rem;
+            }
+            
+            .slide {
+                padding: var(--space-xl);
+            }
+            
+            .timeline-item {
+                grid-template-columns: 1fr;
+                gap: var(--space-md);
+                text-align: center;
+                padding: var(--space-lg);
+            }
+            
+            .timeline-item::before {
+                left: 50%;
+                top: -8px;
+                transform: translateX(-50%);
+            }
+            
+            .cards-container {
+                grid-template-columns: 1fr;
+                gap: var(--space-lg);
+            }
+            
+            .navigation {
+                bottom: var(--space-lg);
+                padding: var(--space-md) var(--space-lg);
+            }
+            
+            .nav-btn {
+                width: 48px;
+                height: 48px;
+                font-size: 1.1rem;
+            }
+            
+            .progress-indicator {
+                top: var(--space-lg);
+                right: var(--space-lg);
+            }
+            
+            .page-counter {
+                bottom: var(--space-lg);
+                right: var(--space-lg);
+                padding: var(--space-sm) var(--space-lg);
+                font-size: 1rem;
+            }
+        }
+
+        /* ==================== 打印样式 ==================== */
+        @media print {
+            .navigation,
+            .progress-indicator,
+            .page-counter,
+            .mountain-decoration,
+            .bamboo-decoration,
+            .ink-drop,
+            .seal-decoration,
+            .traditional-frame {
+                display: none !important;
+            }
+            
+            .slide {
+                position: static !important;
+                opacity: 1 !important;
+                transform: none !important;
+                page-break-after: always;
+                height: auto;
+                min-height: 100vh;
+                padding: var(--space-xl);
+            }
+        }
+    </style>
+</head>
+<body class="traditional-paper">
+    <div class="presentation-container">
+        <!-- 山水画装饰 -->
+        <div class="mountain-decoration"></div>
+        <div class="mountain-decoration"></div>
+        <div class="mountain-decoration"></div>
+        
+        <!-- 竹叶装饰 -->
+        <div class="bamboo-decoration"></div>
+        <div class="bamboo-decoration"></div>
+        <div class="bamboo-decoration"></div>
+        
+        <!-- 墨滴效果 -->
+        <div class="ink-drop"></div>
+        <div class="ink-drop"></div>
+        <div class="ink-drop"></div>
+        <div class="ink-drop"></div>
+        
+        <!-- 传统边框 -->
+        <div class="traditional-frame"></div>
+        
+        <!-- 页面1：欢迎封面 -->
+        <section class="slide active traditional-paper" data-slide="1">
+            <div class="seal-decoration">禅</div>
+            <div class="seal-decoration">悟</div>
+            
+            <div class="welcome-content traditional-entrance">
+                <h1 class="main-title">镜悟小我</h1>
+                <h2 class="welcome-subtitle">心理成长训练营</h2>
+                <div class="welcome-decorative"></div>
+                <p class="welcome-description">
+                    亲爱的学员，欢迎您参加镜悟小我心理成长训练营！<br><br>
+                    在接下来的三天里，我们将共同开启一段探索内心、自我成长的旅程。<br>
+                    在这里，您将体验传统文化的智慧，感受内心深处的宁静与力量。
+                </p>
             </div>
-        </nav>
+        </section>
 
-        <!-- 右侧内容区 -->
-        <main class="main-content" role="main">
-            <!-- 欢迎语部分 -->
-            <section id="welcome" class="content-section active" data-section="welcome" aria-labelledby="welcome-title">
-                <div class="welcome-header">
-                    <div class="title-decoration">
-                        <div class="circle-pattern"></div>
-                    </div>
-                    <h1 id="welcome-title">镜悟小我心理成长训练营</h1>
-                    <h2>学员使用手册</h2>
-                    <div class="divider">
-                        <div class="divider-line"></div>
-                        <div class="divider-center"></div>
-                        <div class="divider-line"></div>
+        <!-- 页面2：参营准备 -->
+        <section class="slide traditional-paper" data-slide="2">
+            <h2 class="section-title slide-in-right">参营前准备</h2>
+            <div class="cards-container">
+                <div class="card fade-in-up" style="animation-delay: 0.1s;">
+                    <h3 class="card-title">
+                        <span class="card-icon">座</span>
+                        座位安排
+                    </h3>
+                    <div class="card-content">
+                        您在入场后可自行选择座位入座，一人一座，固定位置。
                     </div>
                 </div>
                 
-                <div class="welcome-message">
-                    <div class="message-decoration left">
-                        <div class="zen-symbol">禅</div>
-                    </div>
-                    <div class="welcome-content">
-                        <p class="greeting">亲爱的学员：</p>
-                        <p class="content">欢迎您参加【镜悟小我】心理成长训练营！在接下来的三天里，我们将共同开启一段探索内心、自我成长的旅程，训练营将陪伴您打开心门，解开心结，理清方向。为使您在训练营中有更好的学习体验与收获，请提前阅读本手册。</p>
-                    </div>
-                    <div class="message-decoration right">
-                        <div class="zen-symbol">悟</div>
+                <div class="card fade-in-up" style="animation-delay: 0.2s;">
+                    <h3 class="card-title">
+                        <span class="card-icon">衣</span>
+                        着装建议
+                    </h3>
+                    <div class="card-content">
+                        建议穿着宽松舒适的衣物，以便更好地参与各项训练活动。
                     </div>
                 </div>
-            </section>
+                
+                <div class="card fade-in-up" style="animation-delay: 0.3s;">
+                    <h3 class="card-title">
+                        <span class="card-icon">温</span>
+                        环境温度
+                    </h3>
+                    <div class="card-content">
+                        会场内为您配备毛毯，空调将调控至适宜温度，确保舒适体验。
+                    </div>
+                </div>
+                
+                <div class="card fade-in-up" style="animation-delay: 0.4s;">
+                    <h3 class="card-title">
+                        <span class="card-icon">食</span>
+                        餐饮安排
+                    </h3>
+                    <div class="card-content">
+                        参营期间建议清淡饮食。早餐7:00-8:00，午餐为素食桌餐，晚餐需自行安排。
+                    </div>
+                </div>
+                
+                <div class="card fade-in-up" style="animation-delay: 0.5s;">
+                    <h3 class="card-title">
+                        <span class="card-icon">📱</span>
+                        电子设备
+                    </h3>
+                    <div class="card-content">
+                        请勿将电子设备带入会场，入场前请将手机调至静音交由工作人员保管。
+                    </div>
+                </div>
+                
+                <div class="card fade-in-up" style="animation-delay: 0.6s;">
+                    <h3 class="card-title">
+                        <span class="card-icon">💧</span>
+                        饮水服务
+                    </h3>
+                    <div class="card-content">
+                        会场外设置饮水区，提供温热水、红糖、咖啡等饮品，可自带水杯。
+                    </div>
+                </div>
+                
+                <div class="card fade-in-up" style="animation-delay: 0.7s;">
+                    <h3 class="card-title">
+                        <span class="card-icon">💼</span>
+                        物品保管
+                    </h3>
+                    <div class="card-content">
+                        请自行保管贵重物品，建议随身携带，确保财物安全。
+                    </div>
+                </div>
+            </div>
+        </section>
 
-            <!-- 参营前准备 -->
-            <section id="preparation" class="content-section" data-section="preparation" aria-labelledby="preparation-title">
-                <h2 id="preparation-title" class="section-title">参营前准备</h2>
-                
-                <div class="preparation-grid">
-                    <div class="prep-item" data-prep="seat">
-                        <div class="prep-icon">
-                            <div class="icon-circle"></div>
-                        </div>
-                        <div class="prep-content">
-                            <h3>座位</h3>
-                            <p>您在入场后可自行选择座位入座，一人一座，固定位置。</p>
-                        </div>
-                    </div>
-                    
-                    <div class="prep-item" data-prep="clothing">
-                        <div class="prep-icon">
-                            <div class="icon-circle"></div>
-                        </div>
-                        <div class="prep-content">
-                            <h3>衣着</h3>
-                            <p>建议穿着宽松舒适的衣物。</p>
-                        </div>
-                    </div>
-                    
-                    <div class="prep-item" data-prep="temperature">
-                        <div class="prep-icon">
-                            <div class="icon-circle"></div>
-                        </div>
-                        <div class="prep-content">
-                            <h3>温度</h3>
-                            <p>会场内为您配备毛毯，空调将调控至适宜温度。</p>
-                        </div>
-                    </div>
-                    
-                    <div class="prep-item" data-prep="meal">
-                        <div class="prep-icon">
-                            <div class="icon-circle"></div>
-                        </div>
-                        <div class="prep-content">
-                            <h3>就餐</h3>
-                            <p>参营期间建议清淡饮食。住宿学员可在7:00-8:00之间至餐厅享用早餐。午餐为素食桌餐，中午下课后请直接前往餐厅。晚餐需自行安排，您可自备食物或者提前预定外卖。</p>
-                        </div>
-                    </div>
-                    
-                    <div class="prep-item" data-prep="phone">
-                        <div class="prep-icon">
-                            <div class="icon-circle"></div>
-                        </div>
-                        <div class="prep-content">
-                            <h3>手机</h3>
-                            <p>请勿将电子设备带入会场。入场前请将手机调至静音或飞行模式，放置教室门口交由工作人员保管，课间休息时出门取用；如您有重要电话需要及时接听，可告知工作人员以便及时通知您。</p>
-                        </div>
-                    </div>
-                    
-                    <div class="prep-item" data-prep="water">
-                        <div class="prep-icon">
-                            <div class="icon-circle"></div>
-                        </div>
-                        <div class="prep-content">
-                            <h3>饮水</h3>
-                            <p>会场外设置饮水区，提供温热水、红糖、咖啡等饮品。您可自带水杯或使用纸杯，请勿将无杯盖水杯带入会场。</p>
-                        </div>
-                    </div>
-                    
-                    <div class="prep-item" data-prep="items">
-                        <div class="prep-icon">
-                            <div class="icon-circle"></div>
-                        </div>
-                        <div class="prep-content">
-                            <h3>物品</h3>
-                            <p>请自行保管贵重物品，建议随身携带。</p>
-                        </div>
+        <!-- 页面3：训练营流程（第1天重点） -->
+        <section class="slide traditional-paper" data-slide="3">
+            <h2 class="section-title slide-in-right">训练营流程 - 第一天</h2>
+            <div class="timeline-container">
+                <div class="timeline-item fade-in-up" style="animation-delay: 0.1s;">
+                    <div class="timeline-label">第1天</div>
+                    <div class="timeline-time">7:40-8:10</div>
+                    <div class="timeline-content">
+                        <strong>签到登记</strong>
+                        <p>请至二楼会议室门口签到台登记，领取学员资料包。</p>
                     </div>
                 </div>
-            </section>
+                
+                <div class="timeline-item fade-in-up" style="animation-delay: 0.2s;">
+                    <div class="timeline-label">每天</div>
+                    <div class="timeline-time">8:10</div>
+                    <div class="timeline-content">
+                        <strong>有序入场</strong>
+                        <p>请您排队进场，选择座位，保持安静准备开始学习。</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item fade-in-up" style="animation-delay: 0.3s;">
+                    <div class="timeline-label">每天</div>
+                    <div class="timeline-time">8:10-8:30</div>
+                    <div class="timeline-content">
+                        <strong>静心环节</strong>
+                        <p>请您闭目静坐，感受内心。如身心乏累，可躺下静心；也可释放情绪。</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item fade-in-up" style="animation-delay: 0.4s;">
+                    <div class="timeline-label">每天</div>
+                    <div class="timeline-time">8:30-10:30</div>
+                    <div class="timeline-content">
+                        <strong>核心训练时段</strong>
+                        <p>您可举手发言，与老师对话答疑解惑。举手后请耐心等待，工作人员会按顺序递送麦克风。</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item fade-in-up" style="animation-delay: 0.5s;">
+                    <div class="timeline-label">休息</div>
+                    <div class="timeline-time">10:30-10:40</div>
+                    <div class="timeline-content">
+                        <strong>茶歇时间</strong>
+                        <p>会场外备有小食与水果供您食用，适当补充能量。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-            <!-- 训练营流程 -->
-            <section id="schedule" class="content-section" data-section="schedule" aria-labelledby="schedule-title">
-                <h2 id="schedule-title" class="section-title">训练营流程</h2>
-                
-                <div class="table-container">
-                    <div class="table-header-decoration"></div>
-                    <table class="schedule-table">
-                        <thead>
-                            <tr>
-                                <th>天数</th>
-                                <th>时段</th>
-                                <th>时间</th>
-                                <th>事项</th>
-                                <th>备注</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>第1天</td>
-                                <td>上午</td>
-                                <td>7:40-8:10</td>
-                                <td>签到</td>
-                                <td>请至二楼会议室门口签到台登记。</td>
-                            </tr>
-                            <tr>
-                                <td>每天</td>
-                                <td>上午</td>
-                                <td>8:10</td>
-                                <td>入场</td>
-                                <td>请您排队进场，选择座位。</td>
-                            </tr>
-                            <tr>
-                                <td>每天</td>
-                                <td>上午</td>
-                                <td>8:10-8:30</td>
-                                <td>静心</td>
-                                <td>请您闭目静坐，感受内心。如您身心乏累，可躺下静心；如您需要，也可释放情绪。</td>
-                            </tr>
-                            <tr>
-                                <td>每天</td>
-                                <td>上午</td>
-                                <td>8:30-10:30</td>
-                                <td>训练营</td>
-                                <td>您可举手发言，与老师对话答疑解惑。举手后请耐心等待，工作人员会按顺序递送麦克风。</td>
-                            </tr>
-                            <tr>
-                                <td>每天</td>
-                                <td>上午</td>
-                                <td>10:30-10:40</td>
-                                <td>休息10分钟</td>
-                                <td>会场外备有小食与水果供您食用。</td>
-                            </tr>
-                            <tr>
-                                <td>每天</td>
-                                <td>上午</td>
-                                <td>10:40-12:00</td>
-                                <td>训练营</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>每天</td>
-                                <td>上午</td>
-                                <td>12:00-12:40</td>
-                                <td>午餐</td>
-                                <td>下课后请您尽快前往餐厅就餐。</td>
-                            </tr>
-                            <tr>
-                                <td>每天</td>
-                                <td>上午</td>
-                                <td>12:40-14:00</td>
-                                <td>午休</td>
-                                <td>您可回房间或在教室午休。</td>
-                            </tr>
-                            <tr>
-                                <td>每天</td>
-                                <td>下午</td>
-                                <td>14:00</td>
-                                <td>入场</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>每天</td>
-                                <td>下午</td>
-                                <td>14:00-14:20</td>
-                                <td>静心</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>每天</td>
-                                <td>下午</td>
-                                <td>14:20-16:20</td>
-                                <td>训练营</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>每天</td>
-                                <td>下午</td>
-                                <td>16:20-16:30</td>
-                                <td>休息10分钟</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>每天</td>
-                                <td>下午</td>
-                                <td>16:30-19:00</td>
-                                <td>训练营</td>
-                                <td>第3天结束时间为18:00-18:30之间，请您安排好自己的行程。</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <div class="table-footer-decoration"></div>
+        <!-- 页面4：训练营流程（完整安排） -->
+        <section class="slide traditional-paper" data-slide="4">
+            <h2 class="section-title slide-in-right">训练营完整流程</h2>
+            <div class="timeline-container">
+                <div class="timeline-item fade-in-up" style="animation-delay: 0.1s;">
+                    <div class="timeline-label">上午</div>
+                    <div class="timeline-time">10:40-12:00</div>
+                    <div class="timeline-content">
+                        <strong>训练营继续</strong>
+                        <p>深入探索内心世界，解答困惑。</p>
+                    </div>
                 </div>
-            </section>
+                
+                <div class="timeline-item fade-in-up" style="animation-delay: 0.2s;">
+                    <div class="timeline-label">午餐</div>
+                    <div class="timeline-time">12:00-12:40</div>
+                    <div class="timeline-content">
+                        <strong>营养补给</strong>
+                        <p>下课后请您尽快前往餐厅就餐，午餐为清淡素食。</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item fade-in-up" style="animation-delay: 0.3s;">
+                    <div class="timeline-label">午休</div>
+                    <div class="timeline-time">12:40-14:00</div>
+                    <div class="timeline-content">
+                        <strong>养精蓄锐</strong>
+                        <p>您可回房间或在教室午休，为下午的学习储备精力。</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item fade-in-up" style="animation-delay: 0.4s;">
+                    <div class="timeline-label">下午</div>
+                    <div class="timeline-time">14:00-14:20</div>
+                    <div class="timeline-content">
+                        <strong>下午静心</strong>
+                        <p>重新调整状态，准备下午的深入学习。</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item fade-in-up" style="animation-delay: 0.5s;">
+                    <div class="timeline-label">下午</div>
+                    <div class="timeline-time">14:20-16:20</div>
+                    <div class="timeline-content">
+                        <strong>深度训练</strong>
+                        <p>系统性学习心理学知识和实践技能。</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item fade-in-up" style="animation-delay: 0.6s;">
+                    <div class="timeline-label">休息</div>
+                    <div class="timeline-time">16:20-16:30</div>
+                    <div class="timeline-content">
+                        <strong>短暂休息</strong>
+                        <p>适当活动，调整状态。</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item fade-in-up" style="animation-delay: 0.7s;">
+                    <div class="timeline-label">晚上</div>
+                    <div class="timeline-time">16:30-19:00</div>
+                    <div class="timeline-content">
+                        <strong>晚间训练</strong>
+                        <p>第3天结束时间为18:00-18:30之间，请安排好行程。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-            <!-- 训练营形式 -->
-            <section id="format" class="content-section" data-section="format" aria-labelledby="format-title">
-                <h2 id="format-title" class="section-title">训练营形式</h2>
-                
-                <div class="format-description">
-                    <div class="description-decoration">
-                        <div class="zen-branch left"></div>
-                        <p>训练营通过多种方式引导您放松身心、觉察自我、回归内在。您将体验到以下多种形式：</p>
-                        <div class="zen-branch right"></div>
+        <!-- 页面5：训练营形式 -->
+        <section class="slide traditional-paper" data-slide="5">
+            <h2 class="section-title slide-in-right">训练营形式</h2>
+            <p class="welcome-description" style="text-align: center; max-width: 800px; margin: 0 auto var(--space-3xl);">
+                训练营通过多种方式引导您放松身心、觉察自我、回归内在。您将体验到以下多种形式：
+            </p>
+            <div class="cards-container">
+                <div class="card fade-in-up" style="animation-delay: 0.1s;">
+                    <h3 class="card-title">
+                        <span class="card-icon">💬</span>
+                        答疑解惑
+                    </h3>
+                    <div class="card-content">
+                        专业老师现场解答学员提出的心理成长相关问题。
                     </div>
                 </div>
                 
-                <div class="format-grid">
-                    <div class="format-item">
-                        <div class="format-decoration">
-                            <div class="circle-number">01</div>
-                            <div class="ink-splash"></div>
-                        </div>
-                        <span class="format-text">答疑解惑</span>
-                    </div>
-                    <div class="format-item">
-                        <div class="format-decoration">
-                            <div class="circle-number">02</div>
-                            <div class="ink-splash"></div>
-                        </div>
-                        <span class="format-text">对话引导</span>
-                    </div>
-                    <div class="format-item">
-                        <div class="format-decoration">
-                            <div class="circle-number">03</div>
-                            <div class="ink-splash"></div>
-                        </div>
-                        <span class="format-text">静心音乐</span>
-                    </div>
-                    <div class="format-item">
-                        <div class="format-decoration">
-                            <div class="circle-number">04</div>
-                            <div class="ink-splash"></div>
-                        </div>
-                        <span class="format-text">情绪释放</span>
-                    </div>
-                    <div class="format-item">
-                        <div class="format-decoration">
-                            <div class="circle-number">05</div>
-                            <div class="ink-splash"></div>
-                        </div>
-                        <span class="format-text">静坐觉察</span>
-                    </div>
-                    <div class="format-item">
-                        <div class="format-decoration">
-                            <div class="circle-number">06</div>
-                            <div class="ink-splash"></div>
-                        </div>
-                        <span class="format-text">视频照见</span>
-                    </div>
-                    <div class="format-item">
-                        <div class="format-decoration">
-                            <div class="circle-number">07</div>
-                            <div class="ink-splash"></div>
-                        </div>
-                        <span class="format-text">心念面对</span>
-                    </div>
-                    <div class="format-item">
-                        <div class="format-decoration">
-                            <div class="circle-number">08</div>
-                            <div class="ink-splash"></div>
-                        </div>
-                        <span class="format-text">睡眠养神</span>
+                <div class="card fade-in-up" style="animation-delay: 0.2s;">
+                    <h3 class="card-title">
+                        <span class="card-icon">🗣️</span>
+                        对话引导
+                    </h3>
+                    <div class="card-content">
+                        一对一或小组对话，引导深入探索内心世界。
                     </div>
                 </div>
-            </section>
+                
+                <div class="card fade-in-up" style="animation-delay: 0.3s;">
+                    <h3 class="card-title">
+                        <span class="card-icon">🎵</span>
+                        静心音乐
+                    </h3>
+                    <div class="card-content">
+                        舒缓的音乐帮助放松身心，营造宁静的学习氛围。
+                    </div>
+                </div>
+                
+                <div class="card fade-in-up" style="animation-delay: 0.4s;">
+                    <h3 class="card-title">
+                        <span class="card-icon">😊</span>
+                        情绪释放
+                    </h3>
+                    <div class="card-content">
+                        安全的环境让您释放压抑的情绪，获得内心平静。
+                    </div>
+                </div>
+                
+                <div class="card fade-in-up" style="animation-delay: 0.5s;">
+                    <h3 class="card-title">
+                        <span class="card-icon">🧘</span>
+                        静坐觉察
+                    </h3>
+                    <div class="card-content">
+                        通过静坐练习培养觉察能力，洞察内心变化。
+                    </div>
+                </div>
+                
+                <div class="card fade-in-up" style="animation-delay: 0.6s;">
+                    <h3 class="card-title">
+                        <span class="card-icon">📺</span>
+                        视频照见
+                    </h3>
+                    <div class="card-content">
+                        通过视频内容帮助理解心理概念，获得新的认知。
+                    </div>
+                </div>
+                
+                <div class="card fade-in-up" style="animation-delay: 0.7s;">
+                    <h3 class="card-title">
+                        <span class="card-icon">💭</span>
+                        心念面对
+                    </h3>
+                    <div class="card-content">
+                        正面面对内心念头，学会接纳和处理内在冲突。
+                    </div>
+                </div>
+                
+                <div class="card fade-in-up" style="animation-delay: 0.8s;">
+                    <h3 class="card-title">
+                        <span class="card-icon">😴</span>
+                        睡眠养神
+                    </h3>
+                    <div class="card-content">
+                        专门的休息和睡眠指导，恢复精力，滋养心神。
+                    </div>
+                </div>
+            </div>
+        </section>
 
-            <!-- 如何达到最佳学习效果 -->
-            <section id="learning" class="content-section" data-section="learning" aria-labelledby="learning-title">
-                <h2 id="learning-title" class="section-title">如何达到最佳学习效果</h2>
-                
-                <div class="learning-flow">
-                    <div class="flow-decoration">
-                        <div class="zen-circle"></div>
-                        <div class="zen-lines"></div>
-                    </div>
-                    
-                    <div class="learning-tips">
-                        <div class="tip-item">
-                            <div class="tip-icon">1</div>
-                            <h3>放松身心</h3>
-                        </div>
-                        <div class="tip-item">
-                            <div class="tip-icon">2</div>
-                            <h3>真实面对</h3>
-                        </div>
-                        <div class="tip-item">
-                            <div class="tip-icon">3</div>
-                            <h3>发言表达</h3>
-                        </div>
-                        <div class="tip-item">
-                            <div class="tip-icon">4</div>
-                            <h3>关注自己</h3>
-                        </div>
-                        <div class="tip-item">
-                            <div class="tip-icon">5</div>
-                            <h3>接受过程</h3>
-                        </div>
-                    </div>
-                    
-                    <div class="learning-description">
-                        <div class="description-bg">
-                            <div class="zen-symbols">
-                                <div class="symbol">心</div>
-                                <div class="symbol">静</div>
-                                <div class="symbol">悟</div>
-                            </div>
-                        </div>
-                        <p>每个人都具备觉知与觉察的能力，唤醒内心是一个渐进的过程，如您感到着急、烦躁等，请先接受自己当下的状态，然后再去探索情绪背后的原因，从而逐步放松，层层深入内心。</p>
+        <!-- 页面6：学习效果 -->
+        <section class="slide traditional-paper" data-slide="6">
+            <h2 class="section-title slide-in-right">如何达到最佳学习效果</h2>
+            <div class="cards-container">
+                <div class="card fade-in-up" style="animation-delay: 0.1s;">
+                    <h3 class="card-title">
+                        <span class="card-icon">🧘</span>
+                        放松身心
+                    </h3>
+                    <div class="card-content">
+                        放下外界的压力和焦虑，以开放的心态参与训练。
                     </div>
                 </div>
-            </section>
+                
+                <div class="card fade-in-up" style="animation-delay: 0.2s;">
+                    <h3 class="card-title">
+                        <span class="card-icon">😊</span>
+                        真实面对
+                    </h3>
+                    <div class="card-content">
+                        诚实地面对自己的内心，不逃避困难和挑战。
+                    </div>
+                </div>
+                
+                <div class="card fade-in-up" style="animation-delay: 0.3s;">
+                    <h3 class="card-title">
+                        <span class="card-icon">🗣️</span>
+                        发言表达
+                    </h3>
+                    <div class="card-content">
+                        积极参与讨论，勇敢表达自己的想法和感受。
+                    </div>
+                </div>
+                
+                <div class="card fade-in-up" style="animation-delay: 0.4s;">
+                    <h3 class="card-title">
+                        <span class="card-icon">👁️</span>
+                        关注自己
+                    </h3>
+                    <div class="card-content">
+                        将注意力转向内在，关注自己的成长和变化。
+                    </div>
+                </div>
+                
+                <div class="card fade-in-up" style="animation-delay: 0.5s;">
+                    <h3 class="card-title">
+                        <span class="card-icon">🌱</span>
+                        接受过程
+                    </h3>
+                    <div class="card-content">
+                        接受成长是一个渐进的过程，不要急于求成。
+                    </div>
+                </div>
+                
+                <div class="card fade-in-up" style="animation-delay: 0.6s; grid-column: 1 / -1; max-width: 700px; margin: 0 auto;">
+                    <h3 class="card-title">
+                        <span class="card-icon">💎</span>
+                        智慧引导
+                    </h3>
+                    <div class="card-content" style="font-size: 1.15rem; text-align: center;">
+                        每个人都具备觉知与觉察的能力，唤醒内心是一个渐进的过程，如您感到着急、烦躁等，请先接受自己当下的状态，然后再去探索情绪背后的原因，从而逐步放松，层层深入内心。
+                    </div>
+                </div>
+            </div>
+        </section>
 
-            <!-- 参营后服务须知 -->
-            <section id="service" class="content-section" data-section="service" aria-labelledby="service-title">
-                <h2 id="service-title" class="section-title">参营后服务须知</h2>
-                
-                <div class="service-content">
-                    <div class="service-decoration">
-                        <div class="zen-gate"></div>
-                        <div class="lotus-pattern"></div>
-                    </div>
-                    <p>新学员在训练营结束后将获赠为期一个月的成长陪伴服务，以辅助您在生活实践中应用练习。服务时长为每天30分钟至1小时，请您提前联系服务人员预约时间并准时参与。</p>
-                    
-                    <div class="service-closing">
-                        <div class="closing-decoration"></div>
-                        <p class="closing-text">愿您在这次旅程中找到内心的平静与智慧</p>
+        <!-- 页面7：后续服务 -->
+        <section class="slide traditional-paper" data-slide="7">
+            <h2 class="section-title slide-in-right">参营后服务须知</h2>
+            <div class="cards-container">
+                <div class="card fade-in-up" style="animation-delay: 0.1s; grid-column: 1 / -1; max-width: 900px; margin: 0 auto;">
+                    <h3 class="card-title">
+                        <span class="card-icon">🎁</span>
+                        成长陪伴服务
+                    </h3>
+                    <div class="card-content" style="font-size: 1.15rem;">
+                        新学员在训练营结束后将获赠为期一个月的成长陪伴服务，以辅助您在生活实践中应用练习。
                     </div>
                 </div>
-            </section>
-        </main>
+                
+                <div class="card fade-in-up" style="animation-delay: 0.2s;">
+                    <h3 class="card-title">
+                        <span class="card-icon">⏰</span>
+                        服务时长
+                    </h3>
+                    <div class="card-content">
+                        每天30分钟至1小时的个性化指导，根据您的需要灵活安排。
+                    </div>
+                </div>
+                
+                <div class="card fade-in-up" style="animation-delay: 0.3s;">
+                    <h3 class="card-title">
+                        <span class="card-icon">📞</span>
+                        预约方式
+                    </h3>
+                    <div class="card-content">
+                        请您提前联系服务人员预约时间，确保服务的及时性和有效性。
+                    </div>
+                </div>
+                
+                <div class="card fade-in-up" style="animation-delay: 0.4s;">
+                    <h3 class="card-title">
+                        <span class="card-icon">⏱️</span>
+                        准时参与
+                    </h3>
+                    <div class="card-content">
+                        请准时参与每次辅导，珍惜这段宝贵的成长时光。
+                    </div>
+                </div>
+                
+                <div class="card fade-in-up" style="animation-delay: 0.5s;">
+                    <h3 class="card-title">
+                        <span class="card-icon">🌟</span>
+                        持续成长
+                    </h3>
+                    <div class="card-content">
+                        将训练营学到的知识和技能应用到日常生活中，持续成长。
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 页面8：结束语 -->
+        <section class="slide traditional-paper" data-slide="8">
+            <div class="seal-decoration">安</div>
+            <div class="seal-decoration">宁</div>
+            
+            <div class="welcome-content traditional-entrance">
+                <h1 class="main-title">开启智慧之门</h1>
+                <div class="welcome-decorative"></div>
+                <p class="welcome-description">
+                    愿这份训练营的学习之旅<br><br>
+                    能够真正帮助到每一个参与心理成长的人<br><br>
+                    在传统文化的滋养下<br><br>
+                    获得内心的宁静与智慧<br><br>
+                    找到属于自己的光明道路
+                </p>
+                <div class="welcome-subtitle" style="margin-top: var(--space-3xl); color: var(--warm-gold); font-family: var(--font-calligraphy);">
+                    感谢您的参与，祝您收获满满！
+                </div>
+            </div>
+        </section>
     </div>
 
-    <!-- 移动端遮罩 -->
-    <div class="mobile-overlay" id="mobileOverlay"></div>
-    
-    <!-- 滚动进度指示器 -->
-    <div class="scroll-progress">
-        <div class="progress-bar" id="progressBar"></div>
+    <!-- 导航控制 -->
+    <div class="navigation">
+        <button class="nav-btn" id="prevBtn" onclick="changeSlide(-1)" title="上一页">
+            ←
+        </button>
+        <button class="nav-btn" id="nextBtn" onclick="changeSlide(1)" title="下一页">
+            →
+        </button>
     </div>
 
-    <script src="script.js"></script>
+    <!-- 进度指示器 -->
+    <div class="progress-indicator" id="progressIndicator">
+        <!-- 由JavaScript动态生成 -->
+    </div>
+
+    <!-- 页面计数器 -->
+    <div class="page-counter" id="pageCounter">
+        <span id="currentPage">1</span> / <span id="totalPages">8</span>
+    </div>
+
+    <script>
+        // ==================== 全局变量 ====================
+        let currentSlide = 1;
+        const totalSlides = 8;
+        let isTransitioning = false;
+
+        // ==================== 页面标题数据 ====================
+        const slideTitles = [
+            '欢迎封面',
+            '参营准备', 
+            '第一天流程',
+            '完整流程',
+            '训练形式',
+            '学习效果',
+            '后续服务',
+            '结束语'
+        ];
+
+        // ==================== 初始化 ====================
+        document.addEventListener('DOMContentLoaded', function() {
+            initializePresentation();
+            setupEventListeners();
+            createProgressIndicator();
+            updateNavigation();
+        });
+
+        // ==================== 初始化演示文稿 ====================
+        function initializePresentation() {
+            // 设置总页数
+            document.getElementById('totalPages').textContent = totalSlides;
+            
+            // 初始化页面
+            showSlide(1);
+        }
+
+        // ==================== 事件监听设置 ====================
+        function setupEventListeners() {
+            // 键盘导航
+            document.addEventListener('keydown', handleKeyPress);
+            
+            // 触摸滑动（优化防抖）
+            let startX = 0;
+            let startY = 0;
+            let touchTimeout;
+            
+            document.addEventListener('touchstart', function(e) {
+                startX = e.touches[0].clientX;
+                startY = e.touches[0].clientY;
+            }, { passive: true });
+            
+            document.addEventListener('touchend', function(e) {
+                if (!startX || !startY) return;
+                
+                // 清除之前的定时器
+                clearTimeout(touchTimeout);
+                
+                const endX = e.changedTouches[0].clientX;
+                const endY = e.changedTouches[0].clientY;
+                
+                const diffX = startX - endX;
+                const diffY = startY - endY;
+                
+                // 确保是水平滑动且滑动距离足够
+                if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 50) {
+                    touchTimeout = setTimeout(() => {
+                        if (diffX > 0) {
+                            changeSlide(1); // 向左滑动，下一页
+                        } else {
+                            changeSlide(-1); // 向右滑动，上一页
+                        }
+                    }, 50); // 50ms 防抖延迟
+                }
+                
+                startX = 0;
+                startY = 0;
+            }, { passive: true });
+            
+            // 鼠标滚轮（优化防抖）
+            let wheelTimeout;
+            document.addEventListener('wheel', function(e) {
+                clearTimeout(wheelTimeout);
+                wheelTimeout = setTimeout(() => {
+                    if (e.deltaY > 0) {
+                        changeSlide(1);
+                    } else {
+                        changeSlide(-1);
+                    }
+                }, 100);
+            }, { passive: true });
+        }
+
+        // ==================== 键盘事件处理 ====================
+        function handleKeyPress(e) {
+            switch(e.key) {
+                case 'ArrowLeft':
+                case 'ArrowUp':
+                    e.preventDefault();
+                    changeSlide(-1);
+                    break;
+                case 'ArrowRight':
+                case 'ArrowDown':
+                case ' ':
+                    e.preventDefault();
+                    changeSlide(1);
+                    break;
+                case 'Home':
+                    e.preventDefault();
+                    goToSlide(1);
+                    break;
+                case 'End':
+                    e.preventDefault();
+                    goToSlide(totalSlides);
+                    break;
+            }
+        }
+
+        // ==================== 切换幻灯片 ====================
+        function changeSlide(direction) {
+            if (isTransitioning) return;
+            
+            const newSlide = currentSlide + direction;
+            
+            if (newSlide >= 1 && newSlide <= totalSlides) {
+                goToSlide(newSlide);
+            }
+        }
+
+        // ==================== 跳转到指定幻灯片 ====================
+        function goToSlide(slideNumber) {
+            if (isTransitioning || slideNumber === currentSlide) return;
+            
+            isTransitioning = true;
+            
+            // 隐藏当前幻灯片
+            const currentSlideElement = document.querySelector(`[data-slide="${currentSlide}"]`);
+            if (currentSlideElement) {
+                currentSlideElement.classList.remove('active');
+                if (slideNumber > currentSlide) {
+                    currentSlideElement.classList.add('prev');
+                } else {
+                    currentSlideElement.classList.remove('prev');
+                }
+            }
+            
+            // 显示新幻灯片
+            setTimeout(() => {
+                currentSlide = slideNumber;
+                showSlide(currentSlide);
+                updateNavigation();
+                updateProgressIndicator();
+                updatePageCounter();
+                isTransitioning = false;
+            }, 200);
+        }
+
+        // ==================== 显示幻灯片 ====================
+        function showSlide(slideNumber) {
+            const slideElement = document.querySelector(`[data-slide="${slideNumber}"]`);
+            if (slideElement) {
+                slideElement.classList.add('active');
+                slideElement.classList.remove('prev');
+                
+                // 触发动画
+                triggerSlideAnimations(slideElement);
+            }
+        }
+
+        // ==================== 触发幻灯片动画 ====================
+        function triggerSlideAnimations(slideElement) {
+            const animatedElements = slideElement.querySelectorAll('.fade-in-up, .slide-in-right, .traditional-entrance');
+            
+            animatedElements.forEach((element, index) => {
+                element.style.animationDelay = `${index * 0.1}s`;
+                element.style.animationPlayState = 'running';
+            });
+        }
+
+        // ==================== 更新导航按钮 ====================
+        function updateNavigation() {
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            
+            prevBtn.disabled = currentSlide === 1;
+            nextBtn.disabled = currentSlide === totalSlides;
+        }
+
+        // ==================== 创建进度指示器 ====================
+        function createProgressIndicator() {
+            const indicator = document.getElementById('progressIndicator');
+            
+            for (let i = 1; i <= totalSlides; i++) {
+                const dot = document.createElement('div');
+                dot.className = 'progress-dot';
+                dot.setAttribute('data-title', slideTitles[i - 1]);
+                if (i === 1) dot.classList.add('active');
+                dot.onclick = () => goToSlide(i);
+                indicator.appendChild(dot);
+            }
+        }
+
+        // ==================== 更新进度指示器 ====================
+        function updateProgressIndicator() {
+            const dots = document.querySelectorAll('.progress-dot');
+            dots.forEach((dot, index) => {
+                if (index + 1 === currentSlide) {
+                    dot.classList.add('active');
+                } else {
+                    dot.classList.remove('active');
+                }
+            });
+        }
+
+        // ==================== 更新页面计数器 ====================
+        function updatePageCounter() {
+            document.getElementById('currentPage').textContent = currentSlide;
+        }
+
+        // ==================== 页面可见性变化处理 ====================
+        document.addEventListener('visibilitychange', function() {
+            const animatedElements = document.querySelectorAll('.mountain-decoration, .bamboo-decoration, .ink-drop, .seal-decoration');
+            
+            if (document.hidden) {
+                // 页面隐藏时暂停动画
+                animatedElements.forEach(el => {
+                    el.style.animationPlayState = 'paused';
+                });
+            } else {
+                // 页面显示时恢复动画
+                animatedElements.forEach(el => {
+                    el.style.animationPlayState = 'running';
+                });
+            }
+        });
+
+        // ==================== 错误处理 ====================
+        window.addEventListener('error', function(e) {
+            console.error('演示文稿错误:', e.error);
+        });
+
+        // ==================== 性能优化 ====================
+        // 预加载下一页内容
+        function preloadNextSlide() {
+            const nextSlide = currentSlide + 1;
+            if (nextSlide <= totalSlides) {
+                const nextSlideElement = document.querySelector(`[data-slide="${nextSlide}"]`);
+                if (nextSlideElement) {
+                    // 预计算样式和布局
+                    nextSlideElement.style.willChange = 'transform, opacity';
+                }
+            }
+        }
+
+        // 页面加载完成后执行预加载
+        setTimeout(preloadNextSlide, 1000);
+
+        // ==================== 触摸优化 ====================
+        // 防止iOS Safari的橡皮筋效果
+        document.addEventListener('touchmove', function(e) {
+            if (e.scale !== 1) { 
+                e.preventDefault(); 
+            }
+        }, { passive: false });
+
+        // ==================== 窗口大小变化处理 ====================
+        let resizeTimeout;
+        window.addEventListener('resize', function() {
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(() => {
+                // 重新计算布局
+                const slides = document.querySelectorAll('.slide');
+                slides.forEach(slide => {
+                    slide.style.willChange = 'auto';
+                    slide.style.willChange = 'transform, opacity';
+                });
+            }, 250);
+        });
+    </script>
 </body>
 </html>
